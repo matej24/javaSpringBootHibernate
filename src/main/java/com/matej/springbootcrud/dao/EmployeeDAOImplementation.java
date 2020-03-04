@@ -24,7 +24,9 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
     @Override
     public Employee get(int id) {
-        return null;
+        Session currentSession =  entityManager.unwrap(Session.class);
+        Employee employeeObj = currentSession.get(Employee.class, id);
+        return employeeObj;
     }
 
     @Override
