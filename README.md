@@ -1,8 +1,8 @@
-# :coffee: :seedling: Java SpringBoot Hibernate :seedling: :coffee:
+# :coffee: :seedling: Java SpringBoot Hibernate CRUD :seedling: :coffee:
 
 Simple CRUD with JAVA, SPRINGBOOT and HIBERNATE 
 
-For server was used xampp and simple table of employee's with fields:
+For SQL server was used xampp and simple table of employee's with fields:
 
 * id
 * name
