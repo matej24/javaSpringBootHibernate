@@ -25,7 +25,23 @@ public class EmployeeController {
 
     @GetMapping("/employee/{id}")
     public Employee get(@PathVariable int id) {
-       return employeeService.get(id);
+       Employee employeeObj = employeeService.get(id);
+       if(employeeObj == null){
+           throw new RuntimeException("Employee with id You selected is not found");
+       }
+       return  employeeObj;
+    }
+
+    @DeleteMapping("/employee/{id}")
+    public String delete(@PathVariable int id){
+        employeeService.delete(id);
+        return "Employee has been deleted, with id: " + id;
+    }
+
+    @PutMapping("/employee")
+    public Employee update(@RequestBody Employee employeeObj) {
+        employeeService.save(employeeObj);
+        return employeeObj;
     }
 
 }

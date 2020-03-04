@@ -32,11 +32,15 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
     @Override
     public void save(Employee employee) {
         Session currentSession =  entityManager.unwrap(Session.class);
-        currentSession.save(employee);
+        currentSession.saveOrUpdate(employee);
     }
 
     @Override
     public void delete(int id) {
-
+        Session currentSession =  entityManager.unwrap(Session.class);
+        Employee employeeObj = currentSession.get(Employee.class, id);
+        currentSession.delete(employeeObj);
     }
+
+
 }
